@@ -1,0 +1,52 @@
+1) Total 3 tables are generated in databases named `hibernate_sequence`, `departments`, `employees` hibernate sequence
+   is used to maintain the auto generated Id sequence as (strategy = GenerationType.AUTO) the hibernate uses sequence
+   strategy by default.
+2)  +---------------+--------------+------+-----+---------+-------+
+    | Field         | Type         | Null | Key | Default | Extra |
+    +---------------+--------------+------+-----+---------+-------+
+    | id            | bigint(20)   | NO   | PRI | NULL    |       |
+    | name          | varchar(255) | YES  |     | NULL    |       |
+    | salary        | bigint(20)   | NO   |     | NULL    |       |
+    | department_id | bigint(20)   | YES  | MUL | NULL    |       |
+    +---------------+--------------+------+-----+---------+-------+
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Department department;
+
+3)  +-------+--------------+------+-----+---------+-------+
+    | Field | Type         | Null | Key | Default | Extra |
+    +-------+--------------+------+-----+---------+-------+
+    | id    | bigint(20)   | NO   | PRI | NULL    |       |
+    | name  | varchar(255) | YES  |     | NULL    |       |
+    +-------+--------------+------+-----+---------+-------+
+
+4)  The first insert will be in Departments and then in Employees as in Many to one relation there should be a
+    department first in which the list of employees would be associated.
+
+5)  No there will not be any mapping table created.
+
+6)  If we don't use cascade = CascadeType.PERSIST
+
+    Caused by: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance
+     - save the transient instance before flushing :
+    com.xebia.jpaexcercises._08_many_to_one.Employee.department -> com.xebia.jpaexcercises._08_many_to_one.Department
+
+7)  Using  @NotNull annotation at private Department department;
+
+8)              Department department = new Department("IT");
+                Employee employee = new Employee();
+                employee.setName("John");
+                employee.setSalary(100_000);
+                employee.setDepartment(department);
+                entityManager.persist(employee);
+                Employee employee1 = new Employee();
+                employee1.setName("Tom");
+                employee1.setSalary(100_000);
+                employee1.setDepartment(department);
+                entityManager.persist(employee1);
+                entityManager.getTransaction().commit();
+
+9)  Owning Side - Employee Inverse Side - Department
+
+10) We can use @JoinColumn(name = "dept_id")
+               private Department department;  to rename the column name.

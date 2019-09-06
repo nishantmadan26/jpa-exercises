@@ -12,7 +12,8 @@ public class Employee {
     private String name;
     private long salary;
 
-    @ManyToOne(optional = false)
+    @ManyToOne()
+    @JoinColumn(name = "department_id")
     private Department department;
 
     public Employee() {

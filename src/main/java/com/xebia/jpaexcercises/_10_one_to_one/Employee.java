@@ -12,6 +12,7 @@ public class Employee {
     private String name;
     private long salary;
     @OneToOne
+    @JoinColumn(name = "plot_id")
     private ParkingSpace parkingSpace;
 
     public Employee() {

@@ -1,0 +1,21 @@
+1) By removing the optional = false from the OneToMany relationship then code will run.
+
+2) Bcz of Lazy loading (optional = false) .
+
+3)  +----+------+
+    | id | name |
+    +----+------+
+    |  1 | IT   |
+    +----+------+
+
+    +----+---------------+--------+---------------+
+    | id | name          | salary | department_id |
+    +----+---------------+--------+---------------+
+    |  2 | Test Employee | 100000 |          NULL |
+    +----+---------------+--------+---------------+
+
+4)  Owning Side - Department , Inverse Side - Employee
+
+5)  Only 1
+
+6)

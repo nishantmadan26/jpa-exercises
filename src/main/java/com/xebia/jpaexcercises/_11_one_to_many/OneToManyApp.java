@@ -16,12 +16,13 @@ public class OneToManyApp {
             entityManager.getTransaction().begin();
 
             Department department = new Department("IT");
-            entityManager.persist(department);
+
 
             Employee employee = new Employee();
             employee.setName("Test Employee");
             employee.setSalary(100_000);
             department.addEmployee(employee);
+            entityManager.persist(department);
             entityManager.persist(employee);
             entityManager.getTransaction().commit();
 

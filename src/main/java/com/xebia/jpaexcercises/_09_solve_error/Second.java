@@ -1,9 +1,9 @@
 package com.xebia.jpaexcercises._09_solve_error;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "second")
 public class Second {
 
     @Id

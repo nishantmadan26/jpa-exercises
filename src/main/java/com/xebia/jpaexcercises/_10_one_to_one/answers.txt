@@ -1,0 +1,9 @@
+1)  By adding entityManager.persist(parkingSpace); to line 20 of OneToOneApp.java class.
+
+2)  Only 3 tables named `employees`, `parking_lot`,`hibernate_sequence` would be created and the employee table has the
+    foreign key reference.
+
+3)  By adding this @JoinColumn(name = "plot_id") to the Employee.java class.
+
+4)  By adding   @OneToOne(mappedBy = "parkingSpace")
+                 private Employee employee;             to the ParkingSpace.java class.
