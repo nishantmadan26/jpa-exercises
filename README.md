@@ -1,3 +1,7 @@
+Code Coverage
+
+[![codecov](https://codecov.io/gh/nishantmadan26/jpa-exercises/branch/master/graph/badge.svg)](https://codecov.io/gh/nishantmadan26/jpa-exercises)
+
 # JPA Exercises
 
 This repository contains exercises to help people learn JPA.
